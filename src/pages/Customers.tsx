@@ -119,9 +119,7 @@ export function Customers() {
               <table className="w-full text-left whitespace-nowrap">
                 <thead>
                   <tr className="bg-gray-50/50 border-b border-gray-100">
-                    <th className="px-6 py-4 w-12 text-center">
-                      <input type="checkbox" className="w-4 h-4 rounded text-primary-600 focus:ring-primary-500 border-gray-300 cursor-pointer" />
-                    </th>
+                    <th className="px-6 py-4 w-12 text-center text-[13px] font-bold text-gray-700">S.No</th>
                     <th className="px-4 py-4 text-[13px] font-bold text-gray-700">Customer Name</th>
                     <th className="px-4 py-4 text-[13px] font-bold text-gray-700">Phone</th>
                     <th className="px-4 py-4 text-[13px] font-bold text-gray-700">Email</th>
@@ -131,10 +129,10 @@ export function Customers() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
-                  {customers.map((cus) => (
+                  {customers.map((cus, index) => (
                     <tr key={cus.id} className="hover:bg-blue-50/30 transition-colors group">
-                      <td className="px-6 py-4 text-center">
-                        <input type="checkbox" className="w-4 h-4 rounded text-primary-600 focus:ring-primary-500 border-gray-300 cursor-pointer" />
+                      <td className="px-6 py-4 text-center text-sm font-bold text-gray-500">
+                        {index + 1}
                       </td>
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-3">

@@ -132,9 +132,7 @@ export function ServiceHistory() {
               <table className="w-full text-left whitespace-nowrap">
                 <thead>
                   <tr className="border-b border-gray-100 bg-white">
-                    <th className="px-6 py-4 w-12">
-                      <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600" />
-                    </th>
+                    <th className="px-6 py-4 w-12 text-center text-[13px] font-extrabold text-blue-900">S.No</th>
                     <th className="px-4 py-4 text-[13px] font-extrabold text-blue-900">Service ID</th>
                     <th className="px-4 py-4 text-[13px] font-extrabold text-blue-900">Customer Name</th>
                     <th className="px-4 py-4 text-[13px] font-extrabold text-blue-900">Service Type</th>
@@ -148,8 +146,8 @@ export function ServiceHistory() {
                 <tbody className="divide-y divide-gray-50">
                   {services.map((service, i) => (
                     <tr key={i} className="hover:bg-blue-50/30 transition-colors group">
-                      <td className="px-6 py-4">
-                        <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600" />
+                      <td className="px-6 py-4 text-center text-sm font-bold text-gray-500">
+                        {i + 1}
                       </td>
                       <td className="px-4 py-4 text-sm font-bold text-gray-500">{service.id}</td>
                       <td className="px-4 py-4 text-sm font-bold text-blue-600">{service.customer}</td>

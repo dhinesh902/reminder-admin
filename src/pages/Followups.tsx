@@ -19,6 +19,7 @@ export function Followups() {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead>S.No</TableHead>
                 <TableHead>Customer</TableHead>
                 <TableHead>Type</TableHead>
                 <TableHead>Date</TableHead>
@@ -28,8 +29,9 @@ export function Followups() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {followups.map((item) => (
+              {followups.map((item, index) => (
                 <TableRow key={item.id}>
+                  <TableCell>{index + 1}</TableCell>
                   <TableCell className="font-medium">{item.customer}</TableCell>
                   <TableCell>{item.type}</TableCell>
                   <TableCell>{item.date}</TableCell>
