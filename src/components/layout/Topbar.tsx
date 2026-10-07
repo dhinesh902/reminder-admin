@@ -1,24 +1,35 @@
 import React from 'react';
 import { Menu, Bell, ChevronDown } from 'lucide-react';
 
-export function Topbar({ setSidebarOpen }: { setSidebarOpen: (v: boolean) => void }) {
+export function Topbar({ 
+  setIsMobileOpen, 
+  isCollapsed, 
+  setIsCollapsed 
+}: { 
+  setIsMobileOpen: (v: boolean) => void,
+  isCollapsed: boolean,
+  setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>
+}) {
   return (
-    <header className="sticky top-0 z-30 flex h-[88px] shrink-0 items-center justify-between border-b border-gray-100 bg-white px-6 shadow-sm">
+    <header className="sticky top-0 z-30 flex h-[72px] shrink-0 items-center justify-between border-b border-gray-100 bg-white px-6 shadow-sm transition-all duration-300">
+      
+      {/* Mobile Toggle Button */}
       <button
         type="button"
         className="p-2 -ml-2 text-gray-500 hover:text-gray-700 transition-colors lg:hidden"
-        onClick={() => setSidebarOpen(true)}
+        onClick={() => setIsMobileOpen(true)}
       >
         <span className="sr-only">Open sidebar</span>
         <Menu className="h-6 w-6" aria-hidden="true" />
       </button>
       
-      {/* Spacer for desktop since menu is only on mobile or for keeping structure */}
+      {/* Desktop Toggle Button */}
       <div className="hidden lg:block">
         <button
           type="button"
-          className="p-2 -ml-2 text-gray-500 hover:text-gray-700 transition-colors"
-          onClick={() => setSidebarOpen(true)}
+          className="p-2 -ml-2 text-gray-500 hover:text-gray-700 transition-colors bg-gray-50 hover:bg-gray-100 rounded-xl"
+          onClick={() => setIsCollapsed(v => !v)}
+          title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           <Menu className="h-[22px] w-[22px]" aria-hidden="true" />
         </button>

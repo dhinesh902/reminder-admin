@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { User, Lock, EyeOff, Eye, Droplet, ArrowRight } from 'lucide-react';
 
 export function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('admin@example.com');
+  const [password, setPassword] = useState('admin');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export function Login() {
 
 
         {/* Login Card */}
-        <div className="w-full bg-white/95 backdrop-blur-xl rounded-[28px] shadow-[0_20px_60px_-15px_rgba(0,30,80,0.15)] border border-white p-8 sm:p-10 transition-all">
+        <div className="w-full bg-white/95 backdrop-blur-xl rounded-[10px] shadow-[0_20px_60px_-15px_rgba(0,30,80,0.15)] border border-white p-8 sm:p-10 transition-all">
           <div className="text-center mb-8">
             <h3 className="text-[24px] font-bold text-[#0f172a]">Admin Login</h3>
             <p className="text-[15px] text-[#64748b] mt-1.5 font-medium">Sign in to access your dashboard</p>

@@ -4,15 +4,24 @@ import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 
 export function AppLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
-      <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+    <div className="flex h-screen bg-[#f4f7fa] overflow-hidden">
+      <Sidebar 
+        isMobileOpen={isMobileOpen} 
+        setIsMobileOpen={setIsMobileOpen} 
+        isCollapsed={isCollapsed} 
+      />
       <div className="flex flex-col flex-1 w-0 overflow-hidden">
-        <Topbar setSidebarOpen={setSidebarOpen} />
+        <Topbar 
+          setIsMobileOpen={setIsMobileOpen} 
+          isCollapsed={isCollapsed} 
+          setIsCollapsed={setIsCollapsed} 
+        />
         <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
-          <div className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="p-4 sm:p-5 lg:p-6 max-w-[1400px] mx-auto">
             <Outlet />
           </div>
         </main>
