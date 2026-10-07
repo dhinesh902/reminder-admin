@@ -16,6 +16,7 @@ import { Technicians } from './pages/Technicians';
 import { Reports } from './pages/Reports';
 import { Settings } from './pages/Settings';
 import { Login } from './pages/Login';
+import { Notifications } from './pages/Notifications';
 import type { JSX } from 'react/jsx-runtime';
 
 function RequireAuth({ children }: { children: JSX.Element }) {
@@ -44,6 +45,7 @@ function App() {
           <Route path="customer-products" element={<CustomerProducts />} />
           <Route path="services" element={<Services />} />
           <Route path="service-history" element={<ServiceHistory />} />
+          <Route path="notifications" element={<Notifications />} />
           <Route path="followups" element={<Followups />} />
           <Route path="reminders" element={<Reminders />} />
           <Route path="invoices" element={<Invoices />} />

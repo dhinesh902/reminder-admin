@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { 
+import {
   Bell, Plus, Search, Calendar, Filter, Eye, Edit2, Trash2,
   CalendarDays, Clock, ChevronLeft, AlertCircle, Wrench, IndianRupee, Users,
   FileText, Activity, ChevronRight, Lightbulb
@@ -136,7 +136,7 @@ export function Reminders() {
               <p className="text-[13px] text-blue-900 font-bold mb-1">Total Reminders</p>
               <h3 className="text-2xl font-extrabold text-blue-900 mb-2">15</h3>
             </div>
-            
+
             <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] flex flex-col justify-between hover:shadow-[0_4px_20px_rgb(0,0,0,0.04)] transition-shadow">
               <div className="w-10 h-10 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-4">
                 <AlertCircle className="w-5 h-5" />
@@ -144,7 +144,7 @@ export function Reminders() {
               <p className="text-[13px] text-blue-900 font-bold mb-1">Overdue</p>
               <h3 className="text-2xl font-extrabold text-blue-900 mb-2">4</h3>
             </div>
-            
+
             <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] flex flex-col justify-between hover:shadow-[0_4px_20px_rgb(0,0,0,0.04)] transition-shadow">
               <div className="w-10 h-10 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mb-4">
                 <Clock className="w-5 h-5" />
@@ -152,7 +152,7 @@ export function Reminders() {
               <p className="text-[13px] text-blue-900 font-bold mb-1">Today</p>
               <h3 className="text-2xl font-extrabold text-blue-900 mb-2">3</h3>
             </div>
-            
+
             <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] flex flex-col justify-between hover:shadow-[0_4px_20px_rgb(0,0,0,0.04)] transition-shadow">
               <div className="w-10 h-10 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mb-4">
                 <CalendarDays className="w-5 h-5" />

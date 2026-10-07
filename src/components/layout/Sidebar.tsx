@@ -13,6 +13,7 @@ const navItems = [
   { name: 'Customer Products', path: '/customer-products', icon: Droplet },
   { name: 'Services', path: '/services', icon: Settings },
   { name: 'Service History', path: '/service-history', icon: Mail },
+  { name: 'Notifications', path: '/notifications', icon: Bell },
   { name: 'Follow-ups', path: '/followups', icon: Mail },
   { name: 'Reminders', path: '/reminders', icon: Bell },
   { name: 'Invoices', path: '/invoices', icon: BarChart2 },
