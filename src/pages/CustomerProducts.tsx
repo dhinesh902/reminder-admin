@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Package, Plus, Search, Calendar, Eye, Download, CheckCircle, Clock, Edit2, Trash2,
   User, Settings as SettingsIcon, Save, ArrowLeft,
@@ -7,6 +8,7 @@ import {
 
 export function CustomerProducts() {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
   const purchases = [
     { id: 1, date: '28 May 2025', invoice: 'CP-00120', customer: 'Rohit Sharma', product: 'RO Water Purifier', qty: 1, amount: '2,499', status: 'Paid' },
@@ -157,7 +159,7 @@ export function CustomerProducts() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-center gap-3">
-                          <button className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
+                          <button onClick={() => navigate(`/customer-products/${purchase.id}`)} className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
                           <button className="text-primary-500 hover:text-primary-700 transition-colors"><Edit2 className="w-4 h-4" /></button>
                           <button className="text-rose-500 hover:text-rose-700 transition-colors"><Trash2 className="w-4 h-4" /></button>
                         </div>

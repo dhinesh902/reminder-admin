@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, Plus, Search, Eye, Edit2, Trash2, 
   CheckCircle2, Clock, XCircle, ArrowLeft, 
@@ -162,7 +163,7 @@ export function Technicians() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-center gap-3">
-                          <button className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
+                          <Link to={`/technicians/${tech.id}`} className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></Link>
                           <button className="text-primary-500 hover:text-primary-700 transition-colors"><Edit2 className="w-4 h-4" /></button>
                           <button className="text-rose-500 hover:text-rose-700 transition-colors"><Trash2 className="w-4 h-4" /></button>
                         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   Search, Plus, Calendar as CalendarIcon, CheckCircle, Clock, AlertCircle,
   Eye, Edit2, Trash2, ArrowLeft, User, FileText, Bell, ChevronDown
@@ -6,6 +7,7 @@ import {
 
 export function Followups() {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
   const followups = [
     { id: 1, initial: 'RS', bg: 'bg-blue-100 text-blue-700', customer: 'Rohit Sharma', phone: '+91 98765 43210', type: 'Service', typeColor: 'blue', date: 'May 31, 2025', dateSub: '(Today)', status: 'Pending', statusColor: 'amber', assignedTo: 'Admin' },
@@ -324,7 +326,7 @@ export function Followups() {
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-center gap-3">
-                      <button className="text-gray-400 hover:text-primary-600 transition-colors"><Eye className="w-4 h-4" /></button>
+                      <Link to={`/followups/${row.id}`} className="text-gray-400 hover:text-primary-600 transition-colors"><Eye className="w-4 h-4" /></Link>
                       <button className="text-gray-400 hover:text-primary-600 transition-colors"><Edit2 className="w-4 h-4" /></button>
                       <button className="text-gray-400 hover:text-rose-600 transition-colors"><Trash2 className="w-4 h-4" /></button>
                     </div>

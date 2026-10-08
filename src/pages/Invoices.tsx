@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   FileText, Plus, Search, Calendar, Eye, Edit2, Printer, MoreVertical, 
   User, ShoppingCart, CreditCard, Edit, Trash2, Save, Download
@@ -6,6 +7,7 @@ import {
 
 export function Invoices() {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
   // Mock Data for List
   const invoices = [
@@ -149,7 +151,7 @@ export function Invoices() {
                       </td>
                       <td className="px-6 py-4 text-gray-400">
                         <div className="flex items-center gap-3">
-                          <button className="hover:text-primary-600 transition-colors"><Eye className="w-4 h-4" /></button>
+                          <button onClick={() => navigate(`/invoices/${inv.id}`)} className="hover:text-primary-600 transition-colors"><Eye className="w-4 h-4" /></button>
                           <button className="hover:text-primary-600 transition-colors"><Edit2 className="w-4 h-4" /></button>
                           <button className="hover:text-primary-600 transition-colors"><Printer className="w-4 h-4" /></button>
                           <button className="hover:text-gray-600 transition-colors"><MoreVertical className="w-4 h-4" /></button>

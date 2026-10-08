@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { 
-  Users, Plus, Search, Eye, Edit2, Trash2, 
-  UserCheck, UserMinus, AlertCircle, ArrowLeft, 
+import { useNavigate } from 'react-router-dom';
+import {
+  Users, Plus, Search, Eye, Edit2, Trash2,
+  UserCheck, UserMinus, AlertCircle, ArrowLeft,
   User, Droplets, Calendar, Save
 } from 'lucide-react';
 
 export function Customers() {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
   // Mock Data for List
   const customers = [
@@ -45,7 +47,7 @@ export function Customers() {
                 <p className="text-sm text-gray-500 font-medium">Manage your registered customers and their RO systems.</p>
               </div>
             </div>
-            <button 
+            <button
               onClick={() => setShowForm(true)}
               className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all shadow-sm shadow-primary-600/20 hover:shadow-md hover:shadow-primary-600/30"
             >
@@ -55,14 +57,14 @@ export function Customers() {
 
           {/* Filters & Stats Row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-            
+
             {/* Filters */}
             <div className="lg:col-span-12 flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-4 rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)]">
               <div className="relative w-full sm:w-[360px]">
                 <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                <input 
-                  type="text" 
-                  placeholder="Search by name, phone or email..." 
+                <input
+                  type="text"
+                  placeholder="Search by name, phone or email..."
                   className="w-full pl-10 pr-4 py-2.5 bg-gray-50/50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
                 />
               </div>
@@ -150,7 +152,7 @@ export function Customers() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-center gap-3">
-                          <button className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
+                          <button onClick={() => navigate(`/customers/${cus.id}`)} className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
                           <button className="text-primary-500 hover:text-primary-700 transition-colors"><Edit2 className="w-4 h-4" /></button>
                           <button className="text-rose-500 hover:text-rose-700 transition-colors"><Trash2 className="w-4 h-4" /></button>
                         </div>
@@ -183,7 +185,7 @@ export function Customers() {
         <div className="space-y-6">
           {/* Header */}
           <div className="flex items-center gap-3 mb-2">
-            <button 
+            <button
               onClick={() => setShowForm(false)}
               className="w-10 h-10 bg-white border border-gray-200 text-gray-600 flex items-center justify-center rounded-xl hover:bg-gray-50 transition-colors"
             >
@@ -196,7 +198,7 @@ export function Customers() {
           </div>
 
           <div className="space-y-6">
-            
+
             {/* Customer Information */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
               <div className="flex items-center gap-2 mb-6">
@@ -205,7 +207,7 @@ export function Customers() {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">Customer Information</h3>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
                 <div className="space-y-1.5">
                   <label className="text-[13px] font-bold text-gray-700">Full Name <span className="text-red-500">*</span></label>
@@ -230,7 +232,7 @@ export function Customers() {
                 </div>
                 <div className="space-y-1.5 md:col-span-2">
                   <label className="text-[13px] font-bold text-gray-700">Address</label>
-                  <textarea 
+                  <textarea
                     rows={2}
                     placeholder="House No, Street, Area, Landmark"
                     className="w-full bg-white border border-gray-200 text-gray-700 text-sm rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors resize-none placeholder:text-gray-400"
@@ -261,7 +263,7 @@ export function Customers() {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">RO System Information</h3>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
                 <div className="space-y-1.5">
                   <label className="text-[13px] font-bold text-gray-700">RO System Type <span className="text-red-500">*</span></label>
@@ -308,7 +310,7 @@ export function Customers() {
                 </div>
                 <div className="space-y-1.5 md:col-span-2">
                   <label className="text-[13px] font-bold text-gray-700">Additional Notes</label>
-                  <textarea 
+                  <textarea
                     rows={3}
                     placeholder="Any special instructions or notes..."
                     className="w-full bg-white border border-gray-200 text-gray-700 text-sm rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors resize-none placeholder:text-gray-400"
@@ -319,7 +321,7 @@ export function Customers() {
 
             {/* Form Actions */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <button 
+              <button
                 onClick={() => setShowForm(false)}
                 className="w-full sm:w-auto px-6 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors"
               >

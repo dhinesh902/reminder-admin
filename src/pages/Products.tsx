@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Package, Plus, Search, Eye, Edit2, Trash2, 
   CheckCircle2, AlertCircle, PackageMinus, ArrowLeft, 
@@ -8,6 +9,7 @@ import {
 
 export function Products() {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
   // Mock Data for List
   const products = [
@@ -171,7 +173,7 @@ export function Products() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-center gap-3">
-                          <button className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
+                          <button onClick={() => navigate(`/products/${product.id}`)} className="text-primary-500 hover:text-primary-700 transition-colors"><Eye className="w-4 h-4" /></button>
                           <button className="text-primary-500 hover:text-primary-700 transition-colors"><Edit2 className="w-4 h-4" /></button>
                           <button className="text-rose-500 hover:text-rose-700 transition-colors"><Trash2 className="w-4 h-4" /></button>
                         </div>

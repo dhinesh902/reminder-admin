@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { 
   Wrench, Search, Calendar, Eye, Download, CheckCircle, Clock, XCircle, ChevronLeft, ChevronRight, Edit2, Trash2,
   User, Settings as SettingsIcon, Package, FileText, Image as ImageIcon, UploadCloud, Save, ChevronUp, Plus, Phone
@@ -6,6 +7,7 @@ import {
 
 export function ServiceHistory() {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
   const services = [
     { id: 'SRV-00124', customer: 'Rohit Sharma', type: 'RO Service - Annual', tech: 'Sandeep Yadav', date: '31/05/2025', status: 'Completed', amount: '1,500' },
@@ -160,7 +162,7 @@ export function ServiceHistory() {
                       <td className="px-4 py-4 text-sm font-extrabold text-gray-900">{service.amount}</td>
                       <td className="px-4 py-4">
                         <div className="flex items-center justify-center gap-3">
-                          <button className="text-blue-400 hover:text-blue-600 transition-colors"><Eye className="w-4 h-4" /></button>
+                          <Link to={`/service-history/${service.id}`} className="text-blue-400 hover:text-blue-600 transition-colors"><Eye className="w-4 h-4" /></Link>
                           <button className="text-blue-400 hover:text-blue-600 transition-colors"><Edit2 className="w-4 h-4" /></button>
                           <button className="text-rose-400 hover:text-rose-600 transition-colors"><Trash2 className="w-4 h-4" /></button>
                         </div>
