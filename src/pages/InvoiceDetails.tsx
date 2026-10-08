@@ -1,41 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Droplet, User, Phone, Mail, MapPin, Building2,
-  ShoppingCart, CheckCircle2, FileText, QrCode, Download, Printer, Loader2
+  ShoppingCart, CheckCircle2, FileText, QrCode, Download, Printer
 } from 'lucide-react';
 
 export function InvoiceDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const componentRef = useRef<HTMLDivElement>(null);
-  const [isGenerating, setIsGenerating] = useState(false);
 
-  const handleDownloadPdf = async () => {
-    const element = componentRef.current;
-    if (!element) return;
-    
-    try {
-      setIsGenerating(true);
-      // Dynamically import html2pdf to prevent Vite runtime issues
-      const module = await import('html2pdf.js');
-      const html2pdf = module.default || module;
-      
-      const opt = {
-        margin:       [0.4, 0, 0.4, 0],
-        filename:     `Invoice_${id || 'INV-0108'}.pdf`,
-        image:        { type: 'jpeg' as 'jpeg', quality: 1 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 1024 },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
-
-      await html2pdf().set(opt).from(element).save();
-    } catch (error) {
-      console.error('Failed to generate PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
-    } finally {
-      setIsGenerating(false);
-    }
+  const handleDownloadPdf = () => {
+    // html2canvas (used by html2pdf) doesn't support Tailwind v4's oklch() colors.
+    // Falling back to native browser print which allows users to Save as PDF perfectly.
+    window.print();
   };
 
   const handlePrint = () => {
@@ -45,30 +23,25 @@ export function InvoiceDetails() {
   return (
     <div className="w-full pb-8">
       {/* Header Actions */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 print:hidden">
         <button
           onClick={() => navigate('/invoices')}
           className="flex items-center gap-2 text-gray-500 hover:text-primary-600 transition-colors font-medium"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Invoices
         </button>
-        <div className="flex gap-3 print:hidden">
+        <div className="flex gap-3">
           <button onClick={handlePrint} className="flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-xl font-bold text-sm hover:bg-gray-50 transition-colors shadow-sm">
             <Printer className="w-4 h-4" /> Print
           </button>
-          <button 
-            onClick={handleDownloadPdf} 
-            disabled={isGenerating}
-            className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 disabled:cursor-not-allowed text-white px-4 py-2 rounded-xl font-bold text-sm transition-all shadow-sm shadow-primary-600/20"
-          >
-            {isGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
-            {isGenerating ? 'Generating...' : 'Download PDF'}
+          <button onClick={handleDownloadPdf} className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-xl font-bold text-sm transition-all shadow-sm shadow-primary-600/20">
+            <Download className="w-4 h-4" /> Download PDF
           </button>
         </div>
       </div>
 
       {/* Invoice Document Wrapper */}
-      <div ref={componentRef} className="bg-white rounded-2xl shadow-[0_2px_15px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden max-w-5xl mx-auto font-sans">
+      <div id="invoice-print-area" ref={componentRef} className="bg-white rounded-2xl shadow-[0_2px_15px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden w-full font-sans">
 
         {/* Top Branding Section */}
         <div className="p-8 pb-0 flex justify-between items-start">
@@ -395,6 +368,72 @@ export function InvoiceDetails() {
           </div>
         </div>
 
+        {/* --- Additional Page: AMC & Terms --- */}
+        <div className="print:break-before-page bg-white mt-12 print:mt-0 pt-12 print:pt-16 pb-16 border-t-8 border-blue-100 border-dashed print:border-none min-h-[1056px] flex flex-col">
+          <div className="px-8 flex-1">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-black text-blue-900 tracking-tight">Annual Maintenance Contract</h2>
+                <p className="text-gray-500 font-medium">Terms, Conditions & Service Agreement</p>
+              </div>
+            </div>
+            
+            <div className="space-y-8">
+              {/* Coverage section */}
+              <div className="bg-blue-50/40 rounded-2xl p-8 border border-blue-100">
+                <h3 className="font-bold text-blue-900 text-xl mb-4 flex items-center gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-blue-600" />
+                  AMC Coverage Details
+                </h3>
+                <ul className="space-y-3 text-gray-700 list-none">
+                  <li className="flex gap-3"><span className="text-blue-500 mt-1">•</span> This Annual Maintenance Contract covers periodic maintenance and free servicing of your RO purifier for a duration of 1 year from the invoice date.</li>
+                  <li className="flex gap-3"><span className="text-blue-500 mt-1">•</span> Includes exactly 3 free preventive maintenance visits (one visit every 4 months).</li>
+                  <li className="flex gap-3"><span className="text-blue-500 mt-1">•</span> Free replacement of pre-filter candle (once) and inline carbon/sediment filters (once) during the active contract period.</li>
+                  <li className="flex gap-3"><span className="text-blue-500 mt-1">•</span> Breakdown calls will be attended to free of charge within the AMC period.</li>
+                </ul>
+              </div>
+
+              {/* Exclusions section */}
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <h3 className="font-bold text-gray-900 text-xl mb-4 flex items-center gap-3">
+                  <ShoppingCart className="w-6 h-6 text-gray-500" />
+                  Exclusions & Conditions
+                </h3>
+                <ul className="space-y-3 text-gray-600 list-none">
+                  <li className="flex gap-3"><span className="text-gray-400 mt-1">•</span> RO membrane replacement is strictly NOT covered under this basic AMC unless explicitly specified in a comprehensive package.</li>
+                  <li className="flex gap-3"><span className="text-gray-400 mt-1">•</span> Any physical damage, rat bites, or damage due to electrical fluctuations/short-circuits will be charged extra.</li>
+                  <li className="flex gap-3"><span className="text-gray-400 mt-1">•</span> Shifting of the machine from one location to another will incur standard installation/uninstallation charges.</li>
+                  <li className="flex gap-3"><span className="text-gray-400 mt-1">•</span> The contract is non-transferable and non-refundable under any circumstances.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-24 grid grid-cols-2 gap-8 items-end px-8">
+              <div>
+                <p className="font-bold text-gray-900 mb-2">Customer Declaration</p>
+                <p className="text-xs text-gray-500 mb-16 max-w-sm">I have read and understood the terms and conditions of this Annual Maintenance Contract.</p>
+                <div className="w-64 h-px bg-gray-300"></div>
+                <p className="font-bold text-blue-900 mt-3">Customer Signature</p>
+              </div>
+              
+              <div className="text-right flex flex-col items-end">
+                {/* Simulated signature */}
+                <div className="h-16 flex items-center justify-end opacity-70 mb-2">
+                  <svg viewBox="0 0 200 60" className="w-40 h-16 stroke-blue-800 fill-none" strokeWidth="2">
+                    <path d="M 20 40 Q 40 10, 60 30 T 90 20 T 130 40 Q 150 20, 180 30" strokeLinecap="round" />
+                    <path d="M 60 40 L 70 10" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <div className="w-64 h-px bg-gray-300"></div>
+                <p className="font-bold text-blue-900 mt-3">Authorized Signatory</p>
+                <p className="text-sm text-gray-500">RO Water Reminders</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
