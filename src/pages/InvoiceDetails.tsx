@@ -380,7 +380,7 @@ export function InvoiceDetails() {
                 <p className="text-gray-500 font-medium">Terms, Conditions & Service Agreement</p>
               </div>
             </div>
-            
+
             <div className="space-y-8">
               {/* Coverage section */}
               <div className="bg-blue-50/40 rounded-2xl p-8 border border-blue-100">
@@ -418,7 +418,7 @@ export function InvoiceDetails() {
                 <div className="w-64 h-px bg-gray-300"></div>
                 <p className="font-bold text-blue-900 mt-3">Customer Signature</p>
               </div>
-              
+
               <div className="text-right flex flex-col items-end">
                 {/* Simulated signature */}
                 <div className="h-16 flex items-center justify-end opacity-70 mb-2">
