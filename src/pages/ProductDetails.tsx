@@ -15,36 +15,36 @@ export function ProductDetails() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate(-1)}
-            className="w-10 h-10 bg-white border border-gray-200 text-gray-600 flex items-center justify-center rounded-xl hover:bg-gray-50 transition-colors"
+            className="w-10 h-10 bg-white border border-gray-200 text-gray-600 flex items-center justify-center rounded-xl hover:bg-gray-50 transition-colors shrink-0"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-2xl font-extrabold text-gray-900 leading-tight tracking-tight mb-1">Product Details</h1>
-            <p className="text-sm text-gray-500 font-medium">View and manage product information, stock and pricing.</p>
+            <h1 className="text-xl sm:text-2xl font-extrabold text-gray-900 leading-tight tracking-tight mb-1">Product Details</h1>
+            <p className="text-xs sm:text-sm text-gray-500 font-medium">View and manage product information, stock and pricing.</p>
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-sm shadow-primary-600/20 hover:shadow-md hover:shadow-primary-600/30">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <button className="flex-1 sm:flex-initial justify-center flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-sm shadow-primary-600/20 hover:shadow-md hover:shadow-primary-600/30">
             <Edit className="w-4 h-4" /> Edit
           </button>
-          <button className="flex items-center gap-2 bg-white border border-red-200 text-red-500 hover:bg-red-50 px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-sm">
+          <button className="flex-1 sm:flex-initial justify-center flex items-center gap-2 bg-white border border-red-200 text-red-500 hover:bg-red-50 px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-sm">
             <Trash2 className="w-4 h-4" /> Delete
           </button>
         </div>
       </div>
 
       {/* Top Product Card */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
-        <div className="flex flex-col lg:flex-row justify-between gap-8">
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-4 sm:p-6 md:p-8">
+        <div className="flex flex-col lg:flex-row justify-between gap-6 sm:gap-8">
 
           {/* Left: Info */}
-          <div className="flex items-start gap-8">
-            <div className="w-40 h-40 bg-gray-50 rounded-2xl flex items-center justify-center p-4 border border-gray-100 shrink-0">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-8">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gray-50 rounded-2xl flex items-center justify-center p-4 border border-gray-100 shrink-0">
               {/* Product placeholder image */}
               <img src="https://via.placeholder.com/150/f9fafb/6366f1?text=RO+Filter" alt="Product" className="w-full h-full object-contain mix-blend-multiply opacity-50" />
             </div>
-            <div className="space-y-4 pt-2">
+            <div className="space-y-4 pt-1 sm:pt-2 w-full">
               <div>
                 <div className="flex items-center gap-3 mb-1">
                   <h2 className="text-xl font-extrabold text-gray-900">RO Membrane</h2>
@@ -54,7 +54,7 @@ export function ProductDetails() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-[80px_1fr] gap-y-2 gap-x-4 text-sm">
+              <div className="grid grid-cols-[90px_1fr] gap-y-2 gap-x-2 sm:gap-x-4 text-sm">
                 <span className="text-gray-500 font-medium">Product ID</span>
                 <span className="font-bold text-gray-900">: PRD-001</span>
 
@@ -74,26 +74,24 @@ export function ProductDetails() {
           </div>
 
           {/* Right: Stats */}
-          <div className="flex flex-col sm:flex-row gap-4 lg:min-w-[320px] pt-2">
-            <div className="flex-1 space-y-4">
-              <div>
-                <p className="text-[13px] font-bold text-gray-500 mb-1">Selling Price</p>
-                <p className="text-2xl font-extrabold text-gray-900">₹ 2,499</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col gap-4 lg:min-w-[240px] pt-4 lg:pt-2 border-t border-gray-100 lg:border-t-0">
+            <div>
+              <p className="text-[13px] font-bold text-gray-500 mb-1">Selling Price</p>
+              <p className="text-xl sm:text-2xl font-extrabold text-gray-900">₹ 2,499</p>
+            </div>
+            <div>
+              <p className="text-[13px] font-bold text-gray-500 mb-1">Purchase Price</p>
+              <p className="text-base sm:text-lg font-bold text-gray-900">₹ 1,800</p>
+            </div>
+            <div>
+              <p className="text-[13px] font-bold text-gray-500 mb-1">Current Stock</p>
+              <div className="flex items-baseline gap-1 text-gray-900">
+                <p className="text-xl sm:text-2xl font-extrabold">25</p>
               </div>
-              <div>
-                <p className="text-[13px] font-bold text-gray-500 mb-1">Purchase Price</p>
-                <p className="text-lg font-bold text-gray-900">₹ 1,800</p>
-              </div>
-              <div>
-                <p className="text-[13px] font-bold text-gray-500 mb-1">Current Stock</p>
-                <div className="flex items-baseline gap-1 text-gray-900">
-                  <p className="text-2xl font-extrabold">25</p>
-                </div>
-              </div>
-              <div>
-                <p className="text-[13px] font-bold text-gray-500 mb-1">Unit</p>
-                <p className="text-sm font-bold text-gray-900">Piece</p>
-              </div>
+            </div>
+            <div>
+              <p className="text-[13px] font-bold text-gray-500 mb-1">Unit</p>
+              <p className="text-sm font-bold text-gray-900">Piece</p>
             </div>
           </div>
 
@@ -104,7 +102,7 @@ export function ProductDetails() {
       <div className="space-y-6">
 
         {/* Product Description */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-4 sm:p-6 md:p-8">
           <div className="flex items-center justify-between mb-4 border-b border-gray-50 pb-4">
             <div className="flex items-center gap-2">
               <Package className="w-5 h-5 text-primary-600" />
@@ -122,34 +120,34 @@ export function ProductDetails() {
         {/* Middle 2 cols: Specs & Stock */}
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
           {/* Specifications */}
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-4 sm:p-6 md:p-8">
             <div className="flex items-center mb-6 gap-2 border-b border-gray-50 pb-4">
               <Shield className="w-5 h-5 text-primary-600" />
               <h2 className="text-lg font-bold text-gray-900">Specifications</h2>
             </div>
 
-            <div className="space-y-0">
-              <div className="grid grid-cols-2 py-3 border-b border-gray-50">
+            <div className="space-y-0 overflow-x-auto">
+              <div className="grid grid-cols-2 py-3 border-b border-gray-50 min-w-[260px]">
                 <span className="text-[13px] font-bold text-gray-500">Parameter</span>
                 <span className="text-[13px] font-bold text-gray-500">Value</span>
               </div>
-              <div className="grid grid-cols-2 py-3 border-b border-gray-50">
+              <div className="grid grid-cols-2 py-3 border-b border-gray-50 min-w-[260px]">
                 <span className="text-sm font-medium text-gray-600">Material</span>
                 <span className="text-sm font-bold text-gray-900">Thin Film Composite (TFC)</span>
               </div>
-              <div className="grid grid-cols-2 py-3 border-b border-gray-50">
+              <div className="grid grid-cols-2 py-3 border-b border-gray-50 min-w-[260px]">
                 <span className="text-sm font-medium text-gray-600">Capacity</span>
                 <span className="text-sm font-bold text-gray-900">50 GPD</span>
               </div>
-              <div className="grid grid-cols-2 py-3 border-b border-gray-50">
+              <div className="grid grid-cols-2 py-3 border-b border-gray-50 min-w-[260px]">
                 <span className="text-sm font-medium text-gray-600">Usage</span>
                 <span className="text-sm font-bold text-gray-900">Domestic RO Purifier</span>
               </div>
-              <div className="grid grid-cols-2 py-3 border-b border-gray-50">
+              <div className="grid grid-cols-2 py-3 border-b border-gray-50 min-w-[260px]">
                 <span className="text-sm font-medium text-gray-600">Dimensions</span>
                 <span className="text-sm font-bold text-gray-900">11.5 x 1.75 inch</span>
               </div>
-              <div className="grid grid-cols-2 py-3">
+              <div className="grid grid-cols-2 py-3 min-w-[260px]">
                 <span className="text-sm font-medium text-gray-600">Color</span>
                 <span className="text-sm font-bold text-gray-900">White & Blue</span>
               </div>

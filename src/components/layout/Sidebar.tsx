@@ -76,6 +76,7 @@ export function Sidebar({
             <NavLink
               key={item.name}
               to={item.path}
+              onClick={() => setIsMobileOpen(false)}
               title={isCollapsed ? item.name : undefined}
               className={({ isActive }) => cn(
                 "group flex items-center rounded-xl text-[14px] font-medium transition-all duration-200 overflow-hidden",
