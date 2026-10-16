@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, Edit, Trash2, User, Phone, Mail, MapPin, 
+import {
+  ArrowLeft, Edit, Trash2, User, Phone, Mail, MapPin,
   ShoppingCart, IndianRupee, Calendar, Bell, FileText,
   AlertCircle, Shield, CheckCircle
 } from 'lucide-react';
@@ -39,7 +39,7 @@ export function CustomerDetails() {
       {/* Top Profile Card */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
-          
+
           {/* Left: Info */}
           <div className="flex items-start gap-6">
             <div className="w-20 h-20 bg-primary-50 text-primary-600 rounded-full flex items-center justify-center shrink-0">
@@ -67,7 +67,7 @@ export function CustomerDetails() {
                 </div>
                 <div className="flex items-start gap-2 text-sm">
                   <MapPin className="w-4 h-4 text-primary-500 shrink-0 mt-0.5" />
-                  <span className="font-medium text-gray-700">Shop No. 12, Green Park, Bangalore, Karnataka<br/>- 560001</span>
+                  <span className="font-medium text-gray-700">Shop No. 12, Green Park, Bangalore, Karnataka<br />- 560001</span>
                 </div>
               </div>
             </div>
@@ -75,65 +75,40 @@ export function CustomerDetails() {
 
           {/* Right: Stats */}
           <div className="flex flex-col sm:flex-row gap-4 lg:min-w-[400px]">
-             <div className="flex-1 bg-primary-50/50 border border-primary-50 rounded-xl p-4 flex items-center gap-4">
-               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary-600">
-                 <ShoppingCart className="w-5 h-5" />
-               </div>
-               <div>
-                 <p className="text-[13px] font-bold text-gray-500">Total Purchases</p>
-                 <p className="text-lg font-extrabold text-gray-900">6</p>
-               </div>
-             </div>
-             <div className="flex-1 bg-primary-50/50 border border-primary-50 rounded-xl p-4 flex items-center gap-4">
-               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary-600">
-                 <IndianRupee className="w-5 h-5" />
-               </div>
-               <div>
-                 <p className="text-[13px] font-bold text-gray-500">Total Amount</p>
-                 <p className="text-lg font-extrabold text-gray-900">₹ 24,850</p>
-               </div>
-             </div>
-             <div className="flex-1 bg-primary-50/50 border border-primary-50 rounded-xl p-4 flex items-center gap-4">
-               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary-600">
-                 <Calendar className="w-5 h-5" />
-               </div>
-               <div>
-                 <p className="text-[13px] font-bold text-gray-500">Last Purchase</p>
-                 <p className="text-sm font-extrabold text-gray-900 mt-1">28/05/2025</p>
-               </div>
-             </div>
+            <div className="flex-1 bg-primary-50/50 border border-primary-50 rounded-xl p-4 flex items-center gap-4">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary-600">
+                <ShoppingCart className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-[13px] font-bold text-gray-500">Total Purchases</p>
+                <p className="text-lg font-extrabold text-gray-900">6</p>
+              </div>
+            </div>
+            <div className="flex-1 bg-primary-50/50 border border-primary-50 rounded-xl p-4 flex items-center gap-4">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary-600">
+                <IndianRupee className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-[13px] font-bold text-gray-500">Total Amount</p>
+                <p className="text-lg font-extrabold text-gray-900">₹ 24,850</p>
+              </div>
+            </div>
+            <div className="flex-1 bg-primary-50/50 border border-primary-50 rounded-xl p-4 flex items-center gap-4">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-primary-600">
+                <Calendar className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-[13px] font-bold text-gray-500">Last Purchase</p>
+                <p className="text-sm font-extrabold text-gray-900 mt-1">28/05/2025</p>
+              </div>
+            </div>
           </div>
 
         </div>
       </div>
-
-      {/* Tabs */}
-      <div className="border-b border-gray-200">
-        <div className="flex gap-8 overflow-x-auto">
-          {['Overview', 'Purchase History', 'Invoices', 'Reminders', 'Notes'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`flex items-center gap-2 pb-4 text-sm font-bold border-b-2 transition-colors whitespace-nowrap ${
-                activeTab === tab 
-                  ? 'border-primary-600 text-primary-600' 
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-              }`}
-            >
-              {tab === 'Overview' && <Shield className="w-4 h-4" />}
-              {tab === 'Purchase History' && <ShoppingCart className="w-4 h-4" />}
-              {tab === 'Invoices' && <FileText className="w-4 h-4" />}
-              {tab === 'Reminders' && <Bell className="w-4 h-4" />}
-              {tab === 'Notes' && <FileText className="w-4 h-4" />}
-              {tab}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Content area */}
       <div className="space-y-6">
-        
+
         {/* Customer Information Card */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
           <div className="flex items-center justify-between mb-6 border-b border-gray-50 pb-4">
@@ -145,38 +120,38 @@ export function CustomerDetails() {
               <Edit className="w-3.5 h-3.5" /> Edit
             </button>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
             <div className="grid grid-cols-[140px_1fr] items-start gap-4 text-sm">
               <span className="text-gray-500 font-medium">Customer Name</span>
               <span className="font-bold text-gray-900">: Rohit Sharma</span>
-              
+
               <span className="text-gray-500 font-medium">Phone Number</span>
               <span className="font-bold text-gray-900">: +91 98765 43210</span>
-              
+
               <span className="text-gray-500 font-medium">Email Address</span>
               <span className="font-bold text-gray-900">: rohit.sharma@example.com</span>
-              
+
               <span className="text-gray-500 font-medium">Customer Type</span>
               <span className="font-bold text-gray-900">: Regular</span>
-              
+
               <span className="text-gray-500 font-medium flex items-center h-6">Status</span>
               <span className="flex items-center h-6">
                 <span className="mr-2">:</span>
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Active</span>
               </span>
             </div>
-            
+
             <div className="grid grid-cols-[140px_1fr] items-start gap-4 text-sm">
               <span className="text-gray-500 font-medium">Address</span>
-              <span className="font-bold text-gray-900 leading-relaxed">: Shop No. 12, Green Park,<br/>  Bangalore, Karnataka - 560001</span>
-              
+              <span className="font-bold text-gray-900 leading-relaxed">: Shop No. 12, Green Park,<br />  Bangalore, Karnataka - 560001</span>
+
               <span className="text-gray-500 font-medium">Date of Joining</span>
               <span className="font-bold text-gray-900">: 12/03/2024</span>
-              
+
               <span className="text-gray-500 font-medium">Preferred Contact</span>
               <span className="font-bold text-gray-900">: WhatsApp</span>
-              
+
               <span className="text-gray-500 font-medium">GST No.</span>
               <span className="font-medium text-gray-400">: (Not Provided)</span>
             </div>
@@ -192,7 +167,7 @@ export function CustomerDetails() {
             </div>
             <button className="text-xs font-bold text-primary-600 hover:text-primary-700">View All →</button>
           </div>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full text-left whitespace-nowrap">
               <thead>
@@ -238,7 +213,7 @@ export function CustomerDetails() {
               </div>
               <button className="text-xs font-bold text-primary-600 hover:text-primary-700">View All →</button>
             </div>
-            
+
             <div className="space-y-4">
               <div className="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors bg-gray-50/30">
                 <div className="flex items-center gap-4">
@@ -252,7 +227,7 @@ export function CustomerDetails() {
                 </div>
                 <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-100 uppercase">High</span>
               </div>
-              
+
               <div className="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors bg-gray-50/30">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 shadow-sm">
@@ -265,7 +240,7 @@ export function CustomerDetails() {
                 </div>
                 <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100 uppercase">Medium</span>
               </div>
-              
+
               <div className="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors bg-gray-50/30">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shadow-sm">
@@ -280,7 +255,7 @@ export function CustomerDetails() {
               </div>
             </div>
           </div>
-          
+
           {/* Notes */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
             <div className="flex items-center justify-between mb-6 border-b border-gray-50 pb-4">
@@ -290,15 +265,15 @@ export function CustomerDetails() {
               </div>
               <button className="text-xs font-bold text-primary-600 hover:text-primary-700">Add Note</button>
             </div>
-            
+
             <div className="p-4 rounded-xl border border-gray-100 bg-gray-50/50">
               <p className="text-sm font-medium text-gray-900 leading-relaxed">
                 Customer prefers WhatsApp for communication. Always confirm address before service visit.
               </p>
             </div>
-            
+
             <div className="mt-4 pt-4 border-t border-gray-50">
-               <p className="text-xs text-gray-400 font-medium bg-gray-50 px-2 py-1 rounded-md border border-gray-100 w-fit">Added on: <span className="text-gray-500 font-bold">12/03/2024</span> by Admin</p>
+              <p className="text-xs text-gray-400 font-medium bg-gray-50 px-2 py-1 rounded-md border border-gray-100 w-fit">Added on: <span className="text-gray-500 font-bold">12/03/2024</span> by Admin</p>
             </div>
           </div>
         </div>

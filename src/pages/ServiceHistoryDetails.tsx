@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, Edit, MoreVertical, Wrench, Calendar, CheckCircle, 
+import {
+  ArrowLeft, Edit, MoreVertical, Wrench, Calendar, CheckCircle,
   User, Phone, Mail, MapPin, Settings, FileText, Package
 } from 'lucide-react';
 
@@ -38,7 +38,7 @@ export function ServiceHistoryDetails() {
       {/* Top Profile Card */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
-          
+
           {/* Left: Info */}
           <div className="flex items-start gap-6">
             <div className="w-20 h-20 bg-primary-50 text-primary-600 rounded-full flex items-center justify-center shrink-0">
@@ -66,7 +66,7 @@ export function ServiceHistoryDetails() {
                 </div>
                 <div className="flex items-start gap-2 text-sm">
                   <MapPin className="w-4 h-4 text-primary-500 shrink-0 mt-0.5" />
-                  <span className="font-medium text-gray-700">Shop No. 12, Green Park, Bangalore, Karnataka<br/>- 560001</span>
+                  <span className="font-medium text-gray-700">Shop No. 12, Green Park, Bangalore, Karnataka<br />- 560001</span>
                 </div>
               </div>
             </div>
@@ -74,74 +74,51 @@ export function ServiceHistoryDetails() {
 
           {/* Right: Meta */}
           <div className="flex flex-col gap-4 lg:min-w-[280px]">
-             <div className="flex items-center gap-4">
-               <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600">
-                 <Wrench className="w-5 h-5" />
-               </div>
-               <div>
-                 <p className="text-xs font-bold text-gray-500 mb-0.5">Service ID</p>
-                 <p className="text-sm font-extrabold text-gray-900">SRV-00124</p>
-               </div>
-             </div>
-             <div className="flex items-center gap-4">
-               <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600">
-                 <Calendar className="w-5 h-5" />
-               </div>
-               <div>
-                 <p className="text-xs font-bold text-gray-500 mb-0.5">Service Date</p>
-                 <p className="text-sm font-extrabold text-gray-900">28/05/2025</p>
-               </div>
-             </div>
-             <div className="flex items-center gap-4">
-               <div className="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                 <CheckCircle className="w-5 h-5" />
-               </div>
-               <div>
-                 <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">
-                    ✓ Completed
-                 </span>
-               </div>
-             </div>
-             <div className="flex items-center gap-4">
-               <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600">
-                 <User className="w-5 h-5" />
-               </div>
-               <div>
-                 <p className="text-xs font-bold text-gray-500 mb-0.5">Technician</p>
-                 <p className="text-sm font-extrabold text-gray-900">Amit Verma</p>
-               </div>
-             </div>
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600">
+                <Wrench className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-500 mb-0.5">Service ID</p>
+                <p className="text-sm font-extrabold text-gray-900">SRV-00124</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600">
+                <Calendar className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-500 mb-0.5">Service Date</p>
+                <p className="text-sm font-extrabold text-gray-900">28/05/2025</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                <CheckCircle className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">
+                  ✓ Completed
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600">
+                <User className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-500 mb-0.5">Technician</p>
+                <p className="text-sm font-extrabold text-gray-900">Amit Verma</p>
+              </div>
+            </div>
           </div>
 
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="border-b border-gray-200">
-        <div className="flex gap-8 overflow-x-auto">
-          {['Service Details', 'Products Used', 'Notes', 'Images'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`flex items-center gap-2 pb-4 text-sm font-bold border-b-2 transition-colors whitespace-nowrap ${
-                activeTab === tab 
-                  ? 'border-primary-600 text-primary-600' 
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-              }`}
-            >
-              {tab === 'Service Details' && <Settings className="w-4 h-4" />}
-              {tab === 'Products Used' && <Package className="w-4 h-4" />}
-              {tab === 'Notes' && <FileText className="w-4 h-4" />}
-              {tab === 'Images' && <FileText className="w-4 h-4" />}
-              {tab}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Content area */}
       <div className="space-y-6">
-        
+
         {/* Service Information */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)] p-6 md:p-8">
           <div className="flex items-center justify-between mb-6 border-b border-gray-50 pb-4">
@@ -153,7 +130,7 @@ export function ServiceHistoryDetails() {
               <Edit className="w-3.5 h-3.5" /> Edit
             </button>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-8">
             <div className="flex justify-between items-center pb-2 border-b border-gray-50">
               <span className="text-[13px] font-bold text-gray-600">Service Type</span>
@@ -164,7 +141,7 @@ export function ServiceHistoryDetails() {
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-600">Completed</span>
             </div>
             <div className="hidden lg:block"></div>
-            
+
             <div className="flex justify-between items-center pb-2 border-b border-gray-50">
               <span className="text-[13px] font-bold text-gray-600">Technician</span>
               <span className="text-sm font-bold text-gray-900">Amit Verma</span>
@@ -174,7 +151,7 @@ export function ServiceHistoryDetails() {
               <span className="text-sm font-extrabold text-gray-900">₹ 1,200</span>
             </div>
             <div className="hidden lg:block"></div>
-            
+
             <div className="flex justify-between items-center pb-2 border-b border-gray-50">
               <span className="text-[13px] font-bold text-gray-600">Duration</span>
               <span className="text-sm font-bold text-gray-900">1.5 hours</span>
@@ -184,7 +161,7 @@ export function ServiceHistoryDetails() {
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-600">Paid</span>
             </div>
             <div className="hidden lg:block"></div>
-            
+
             <div className="flex justify-between items-center pb-2 border-b border-gray-50">
               <span className="text-[13px] font-bold text-gray-600">Service Date</span>
               <span className="text-sm font-bold text-gray-900">28/05/2025</span>
@@ -194,7 +171,7 @@ export function ServiceHistoryDetails() {
               <span className="text-sm font-bold text-gray-900">28/05/2027</span>
             </div>
             <div className="hidden lg:block"></div>
-            
+
             <div className="flex justify-between items-center pb-2 border-b border-gray-50">
               <span className="text-[13px] font-bold text-gray-600">Next Service Due</span>
               <span className="text-sm font-bold text-gray-900">28/11/2025 <span className="text-gray-400 font-medium">(in 6 months)</span></span>
@@ -216,7 +193,7 @@ export function ServiceHistoryDetails() {
               </div>
               <button className="text-xs font-bold text-primary-600 hover:text-primary-700">View All →</button>
             </div>
-            
+
             <div className="overflow-x-auto">
               <table className="w-full text-left whitespace-nowrap">
                 <thead>
@@ -288,7 +265,7 @@ export function ServiceHistoryDetails() {
                 </tbody>
               </table>
             </div>
-            
+
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
               <span className="text-[13px] font-bold text-gray-600">Total Product Cost</span>
               <span className="text-lg font-extrabold text-gray-900">₹ 5,794</span>
@@ -334,7 +311,7 @@ export function ServiceHistoryDetails() {
           </div>
           <p className="text-sm font-bold text-gray-900 mb-6 bg-gray-50/50 p-4 rounded-xl border border-gray-100">RO membrane cleaned, filters replaced and system checked. Water TDS is normal (45 ppm). Working fine.</p>
           <div className="pt-4 border-t border-gray-50">
-             <p className="text-[11px] font-bold text-gray-500 bg-gray-50 px-2 py-1 rounded-md border border-gray-100 w-fit">Added by: Amit Verma | 28/05/2025 02:30 PM</p>
+            <p className="text-[11px] font-bold text-gray-500 bg-gray-50 px-2 py-1 rounded-md border border-gray-100 w-fit">Added by: Amit Verma | 28/05/2025 02:30 PM</p>
           </div>
         </div>
 
