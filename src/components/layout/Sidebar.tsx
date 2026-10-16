@@ -59,7 +59,11 @@ export function Sidebar({
           isCollapsed ? "justify-center px-0" : "px-6"
         )}>
           <div className="flex items-center gap-3 overflow-hidden">
-            <Droplet className="w-8 h-8 fill-[#2563eb] text-[#2563eb] shrink-0" />
+            <img 
+              src="/ro-logo.png" 
+              alt="RO Water Reminders Logo" 
+              className="w-8 h-8 object-contain shrink-0 rounded-lg bg-white p-0.5" 
+            />
             <div className={cn(
               "flex flex-col whitespace-nowrap transition-all duration-300", 
               isCollapsed ? "opacity-0 w-0" : "opacity-100 w-auto"
