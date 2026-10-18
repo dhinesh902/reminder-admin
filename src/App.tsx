@@ -13,7 +13,6 @@ import { ServiceHistory } from './pages/ServiceHistory';
 import { ServiceHistoryDetails } from './pages/ServiceHistoryDetails';
 import { Followups } from './pages/Followups';
 import { FollowupDetails } from './pages/FollowupDetails';
-import { Reminders } from './pages/Reminders';
 import { Invoices } from './pages/Invoices';
 import { InvoiceDetails } from './pages/InvoiceDetails';
 import { PurchaseHistory } from './pages/PurchaseHistory';
@@ -59,7 +58,6 @@ function App() {
           <Route path="notifications" element={<Notifications />} />
           <Route path="followups" element={<Followups />} />
           <Route path="followups/:id" element={<FollowupDetails />} />
-          <Route path="reminders" element={<Reminders />} />
           <Route path="invoices" element={<Invoices />} />
           <Route path="invoices/:id" element={<InvoiceDetails />} />
           <Route path="purchase-history" element={<PurchaseHistory />} />

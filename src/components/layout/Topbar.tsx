@@ -14,7 +14,6 @@ const pageTitleMap: Record<string, { title: string; category: string }> = {
   '/customer-products': { title: 'Customer Products', category: 'Assets' },
   '/services': { title: 'Services Catalog', category: 'Services' },
   '/service-history': { title: 'Service History', category: 'Services' },
-  '/reminders': { title: 'Service Reminders', category: 'Operations' },
   '/followups': { title: 'Customer Follow-ups', category: 'Operations' },
   '/notifications': { title: 'System Notifications', category: 'Communication' },
   '/invoices': { title: 'Invoices & Billing', category: 'Finance' },
@@ -264,14 +263,6 @@ export function Topbar({
                 >
                   <Settings className="w-4 h-4 text-slate-400" />
                   Account & Settings
-                </Link>
-                <Link
-                  to="/reminders"
-                  onClick={() => setProfileOpen(false)}
-                  className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors"
-                >
-                  <Clock className="w-4 h-4 text-slate-400" />
-                  Due Reminders (28)
                 </Link>
               </div>
 
